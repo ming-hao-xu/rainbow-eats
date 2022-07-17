@@ -1,0 +1,38 @@
+{
+  "app.footer": {
+    "copyright": "版权所有 © 2022 Rainbow Eats 贡献者。",
+    "ukraine": "支援乌克兰 🇺🇦"
+  },
+  "app.side-drawer": {
+    "university": "立命馆大学",
+    "orders": "订单",
+    "favorites": "收藏",
+    "wallet": "钱包",
+    "promotions": "优惠码",
+    "help": "帮助",
+    "business-account": "创建商户账户",
+    "add-truck": "登录餐车"
+  },
+  "app.info-card": {
+    "menu": "菜单",
+    "map": "地图",
+    "share": "分享"
+  },
+  "app.nav-bar": {
+    "profile": "账户",
+    "settings": "设置",
+    "search": "搜索...",
+    "cart": "购物车",
+    "logout": "注销"
+  },
+  "app.menu-dialog": {
+    "menu": "菜单",
+    "dummy-name1": "牛丼 (¥400)",
+    "dummy-description1": "普通",
+    "dummy-name2": "牛丼 (¥570)",
+    "dummy-description2": "三种入口即化的芝士",
+    "dummy-name3": "牛丼 (¥550)",
+    "dummy-description3": "韩国泡菜",
+    "addcart": "已添加至购物车!"
+  }
+}
