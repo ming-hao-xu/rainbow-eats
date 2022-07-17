@@ -1,0 +1,38 @@
+{
+  "app.footer": {
+    "copyright": "Copyright © 2022 contributors of Rainbow Eats.",
+    "ukraine": "Support Ukraine 🇺🇦"
+  },
+  "app.side-drawer": {
+    "university": "Ritsumeikan University",
+    "orders": "Orders",
+    "favorites": "Favorites",
+    "wallet": "Wallet",
+    "promotions": "Promotions",
+    "help": "Help",
+    "business-account": "Create a new business account",
+    "add-truck": "Add your truck"
+  },
+  "app.info-card" : {
+    "menu" : "menu",
+    "map" : "map",
+    "share" : "share"
+  },
+  "app.nav-bar" : {
+    "profile": "Profile",
+    "settings": "Settings",
+    "search": "Search...",
+    "cart": "Cart",
+    "logout": "Logout"
+  },
+  "app.menu-dialog" : {
+    "menu": "menu",
+    "dummy-name1" : "Gyudon (¥400)",
+    "dummy-description1": "Original",
+    "dummy-name2" : "Gyudon (¥570)",
+    "dummy-description2": "3 Chesses",
+    "dummy-name3" : "Gyudon (¥550)",
+    "dummy-description3": "kimchi",
+    "addcart": "Added to cart!"
+  }
+}
