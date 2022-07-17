@@ -21,7 +21,7 @@ function codeToLanguage(code) {
     case "hi":
       return "हिन्दी (80%)";
     case "id":
-      return "Indonesia (80%)";
+      return "Indonesia (100%)";
     default:
       return "English";
   }
@@ -60,7 +60,7 @@ export default function LangSwitch() {
       <MenuItem onClick={() => handleChange("ja")}>日本語 (100%)</MenuItem>
       <MenuItem onClick={() => handleChange("zh")}>简体中文 (80%)</MenuItem>
       <MenuItem onClick={() => handleChange("hi")}>हिन्दी (80%)</MenuItem>
-      <MenuItem onClick={() => handleChange("id")}>Indonesia (80%)</MenuItem>
+      <MenuItem onClick={() => handleChange("id")}>Indonesia (100%)</MenuItem>
       <a
         href="https://github.com/xu-minghao317/rainbow-eats/tree/main/public/locales"
         target="_blank"
