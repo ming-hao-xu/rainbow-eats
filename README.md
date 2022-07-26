@@ -1,6 +1,7 @@
 # Rainbow Eats
 
-![Rainbow Eats logo](https://drive.google.com/uc?export=view&id=17MNruDj4mLCikPxooVwhDAiQp8oU5qAO)
+![Rainbow Eats logo](https://drive.google.com/uc?export=view&id=17MNruDj4mLCikPxooVwhDAiQp8oU5qAO#gh-light-mode-only)
+![Rainbow Eats logo](https://drive.google.com/uc?export=view&id=1gTvF5bbSxhNuFx-zgd22zUDi8GYQr6eW#gh-dark-mode-only)
 
 <p>
   <img alt="Version" src="https://img.shields.io/github/package-json/v/xu-minghao317/rainbow-eats?style=flat-square" />
