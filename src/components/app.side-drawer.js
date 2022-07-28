@@ -3,7 +3,6 @@ import React from "react";
 // mui
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -16,6 +15,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import SupportIcon from "@mui/icons-material/Support";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import IconButton from "@mui/material/IconButton";
+import { alpha } from "@mui/material/styles";
 
 // i18n
 import { useTranslation } from "react-i18next";
@@ -34,6 +35,34 @@ export default function SideDrawer() {
     setOpen(open);
   };
 
+  const listItems = [
+    {
+      key: "Orders",
+      icon: <MenuBookIcon />,
+      text: t("app.side-drawer.orders"),
+    },
+    {
+      key: "Favorites",
+      icon: <FavoriteIcon />,
+      text: t("app.side-drawer.favorites"),
+    },
+    {
+      key: "Wallet",
+      icon: <AccountBalanceWalletIcon />,
+      text: t("app.side-drawer.wallet"),
+    },
+    {
+      key: "Promotions",
+      icon: <LocalOfferIcon />,
+      text: t("app.side-drawer.promotions"),
+    },
+    {
+      key: "Help",
+      icon: <SupportIcon />,
+      text: t("app.side-drawer.help"),
+    }
+  ];
+
   const list = () => (
     <Box
       sx={{ width: "19rem" }}
@@ -42,40 +71,14 @@ export default function SideDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem key={"Orders"} disablePadding>
-          <ListItemButton>
-            <MenuBookIcon style={{ marginRight: "15px" }} />
-            <ListItemText primary={t("app.side-drawer.orders")} />
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem key={"Favorites"} disablePadding>
-          <ListItemButton>
-            <FavoriteIcon style={{ marginRight: "15px" }} />
-            <ListItemText primary={t("app.side-drawer.favorites")} />
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem key={"Wallet"} disablePadding>
-          <ListItemButton>
-            <AccountBalanceWalletIcon style={{ marginRight: "15px" }} />
-            <ListItemText primary={t("app.side-drawer.wallet")} />
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem key={"Promotions"} disablePadding>
-          <ListItemButton>
-            <LocalOfferIcon style={{ marginRight: "15px" }} />
-            <ListItemText primary={t("app.side-drawer.promotions")} />
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem key={"Help"} disablePadding>
-          <ListItemButton>
-            <SupportIcon style={{ marginRight: "15px" }} />
-            <ListItemText primary={t("app.side-drawer.help")} />
-          </ListItemButton>
-        </ListItem>
+        {listItems.map((item) => (
+          <ListItem key={item.key} disablePadding>
+            <ListItemButton disableRipple>
+              {item.icon}
+              <ListItemText primary={item.text} sx={{ ml: "1rem" }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
 
       <Divider />
@@ -86,19 +89,20 @@ export default function SideDrawer() {
           t("app.side-drawer.add-truck"),
         ].map((text) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton disableRipple>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+
       <Box
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        bottom="50px"
+        bottom="40px"
         left="0"
         right="0"
       >
@@ -128,20 +132,20 @@ export default function SideDrawer() {
 
   return (
     <div>
-      <Button
-        variant="text"
+      <IconButton
         onClick={toggleDrawer(true)}
+        disableRipple
+        edge="start"
+        aria-label="side drawer"
         sx={{
-          minWidth: "0px",
-          marginRight: "1rem",
-          color: "#fff",
           "&:hover": {
-            backgroundColor: "#ce4a4a",
+            backgroundColor: alpha("#fff", 0.25),
           },
         }}
       >
         <MenuIcon />
-      </Button>
+      </IconButton>
+
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>

@@ -2,35 +2,18 @@ import React from "react";
 
 // mui
 import MenuItem from "@mui/material/MenuItem";
-import TranslateIcon from "@mui/icons-material/Translate";
+import LanguageIcon from "@mui/icons-material/Language";
 import Menu from "@mui/material/Menu";
-import Button from "@mui/material/Button";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Fab from "@mui/material/Fab";
 
 // i18n
 import { useTranslation } from "react-i18next";
 
-function codeToLanguage(code) {
-  switch (code) {
-    case "en":
-      return "English (80%)";
-    case "ja":
-      return "日本語 (100%)";
-    case "zh":
-      return "简体中文 (80%)";
-    case "hi":
-      return "हिन्दी (80%)";
-    case "id":
-      return "Indonesia (100%)";
-    default:
-      return "English";
-  }
-}
 
 export default function LangSwitch() {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const isMenuOpen = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -45,52 +28,68 @@ export default function LangSwitch() {
     handleClose();
   };
 
+  const languages = [
+    { code: "ja", flag: "jp", name: "日本語" },
+    { code: "en", flag: "gb", name: "English" },
+    { code: "zh", flag: "cn", name: "简体中文" },
+    { code: "hi", flag: "in", name: "हिन्दी" },
+    { code: "id", flag: "id", name: "Indonesia" },
+  ];
+
   const renderMenu = (
     <Menu
-      anchorEl={anchorEl}
-      id="lang-menu"
+      id="menu-lang"
       keepMounted
-      getContentAnchorEl={null}
+      anchorEl={anchorEl}
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       transformOrigin={{ vertical: "top", horizontal: "center" }}
-      open={isMenuOpen}
+      open={Boolean(anchorEl)}
       onClose={handleClose}
+      MenuListProps={{ onMouseLeave: handleClose }}
+      autoFocus={false}
     >
-      <MenuItem onClick={() => handleChange("en")}>English (80%)</MenuItem>
-      <MenuItem onClick={() => handleChange("ja")}>日本語 (100%)</MenuItem>
-      <MenuItem onClick={() => handleChange("zh")}>简体中文 (80%)</MenuItem>
-      <MenuItem onClick={() => handleChange("hi")}>हिन्दी (80%)</MenuItem>
-      <MenuItem onClick={() => handleChange("id")}>Indonesia (100%)</MenuItem>
-      <a
-        href="https://github.com/xu-minghao317/rainbow-eats/tree/main/public/locales"
-        target="_blank"
-        className="responsive-link-no-underline"
-        rel="noopener noreferrer"
-      >
-        <MenuItem onClick={() => handleClose()}>Help Us Translate</MenuItem>
-      </a>
+      {languages.map((lang) => (
+        <MenuItem
+          key={lang.code}
+          onClick={() => handleChange(lang.code)}
+          disableRipple
+          disabled={lang.code === i18n.language}
+        >
+          <span
+            className={`fi fi-${lang.flag}`}
+            style={{ marginRight: "1rem" }}
+          />
+          {lang.name}
+        </MenuItem>
+      ))}
+      <MenuItem onClick={() => handleClose()}>
+        <a
+          href="https://github.com/xu-minghao317/rainbow-eats/tree/main/public/locales"
+          target="_blank"
+          className="responsive-link"
+          rel="noopener noreferrer"
+        >
+          Help Us Translate
+        </a>
+      </MenuItem>
     </Menu>
   );
 
   return (
-    <div>
-      <Button
+    <>
+      <Fab
         aria-controls="lang-menu"
         aria-haspopup="true"
-        size="large"
-        onClick={handleClick}
-        sx={{
-          color: "#fff",
-          "&:hover": {
-            backgroundColor: "#ce4a4a",
-          },
-        }}
+        variant="extended"
+        color="secondary"
+        onMouseOver={handleClick}
+        disableRipple
       >
-        <TranslateIcon sx={{ marginRight: "0.5rem" }} />
-        {codeToLanguage(i18n.language)}
+        <LanguageIcon sx={{ mr: "0.5rem" }} />
+        {languages.find((lang) => lang.code === i18n.language).name}
         <ArrowDropDownIcon />
-      </Button>
+      </Fab>
       {renderMenu}
-    </div>
+    </>
   );
 }

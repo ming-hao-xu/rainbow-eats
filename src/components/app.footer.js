@@ -2,7 +2,7 @@ import React from "react";
 
 // mui
 import Divider from "@mui/material/Divider";
-import Box from "@mui/material/Box";
+
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { IconButton } from "@mui/material";
@@ -16,13 +16,7 @@ export default function Footer() {
   return (
     <>
       <Divider />
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        height="100px"
-      >
+      <div className="footer">
         <a
           className="responsive-link"
           href="https://war.ukraine.ua/support-ukraine/"
@@ -44,7 +38,7 @@ export default function Footer() {
             <GitHubIcon />
           </IconButton>
         </Typography>
-      </Box>
+      </div>
     </>
   );
 }

@@ -5,10 +5,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActions } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
 import Masonry from "@mui/lab/Masonry";
-import Box from "@mui/material/Box";
 import ShareIcon from "@mui/icons-material/Share";
 
 // components
@@ -21,7 +20,7 @@ export default function InfoCard() {
   const { t } = useTranslation();
   const [truckInfo, setTruckInfo] = useState([]);
 
-  // fetch from MongoDB API
+  // fetch from MongoDB
   useEffect(() => {
     fetch(
       "https://ap-southeast-1.aws.data.mongodb-api.com/app/rainboweats-frtny/endpoint/truckinfo"
@@ -31,45 +30,48 @@ export default function InfoCard() {
   }, []);
 
   return (
-    <Box sx={{ mt: 10, ml: 2 }}>
-      <Masonry columns={4} spacing={2}>
-        {truckInfo.map((truck) => (
-          <Card
-            sx={{
-              boxShadow: 6,
-            }}
-            key={truck._id}
-            elevation={6}
-          >
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt={truck.truck_name}
-                image={"./images/truck/" + truck._id + ".png"}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {truck.truck_name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {truck.truck_description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <MenuDialog truckInfo={truck} />
-              <Button>
-                <MapIcon style={{ marginRight: "5px" }} />
-                {t("app.info-card.map")}
-              </Button>
-              <Button>
-                <ShareIcon style={{ marginRight: "5px" }} />
-                {t("app.info-card.share")}
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
-      </Masonry>
-    </Box>
+    // this div fix mui masonry spacing issue
+    <div style={{marginLeft : "16px"}}>
+    <Masonry columns={4} sx={{ mt: 9 }} spacing={2}>
+      {truckInfo.map((truck) => (
+        <Card elevation={6} key={truck._id} sx={{ borderRadius: "20px" }}>
+          <CardMedia
+            component="img"
+            alt={truck.truck_name}
+            image={"./images/truck/" + truck._id + ".png"}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" noWrap={true}>
+              {truck.truck_name}
+            </Typography>
+            <Typography variant="subtitle2" color="textSecondary">
+              {truck.truck_description}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <MenuDialog truckName={truck.truck_name} />
+            <Button
+              variant="contained"
+              disableElevation
+              disableRipple
+              sx={{ mr: 1, mb: 0.5 }}
+              endIcon={<MapIcon />}
+            >
+              {t("app.info-card.map")}
+            </Button>
+            <Button
+              variant="contained"
+              disableElevation
+              disableRipple
+              sx={{ mr: 1, mb: 0.5 }}
+              endIcon={<ShareIcon />}
+            >
+              {t("app.info-card.share")}
+            </Button>
+          </CardActions>
+        </Card>
+      ))}
+    </Masonry>
+    </div>
   );
 }

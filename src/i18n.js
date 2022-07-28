@@ -9,18 +9,8 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "jp",
-    debug: true,
     detections: {
-      order: [
-        "querystring",
-        "cookie",
-        "localStorage",
-        "sessionStorage",
-        "navigator",
-        "htmlTag",
-        "path",
-        "subdomain",
-      ],
+      order: ["cookie", "localStorage", "path", "htmlTag"],
       caches: ["cookie"],
     },
   });

@@ -1,6 +1,6 @@
 {
   "name": "rainbow-eats",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -12,6 +12,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "boring-avatars": "^1.7.0",
+    "flag-icons": "^6.6.4",
     "i18next": "^21.8.11",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.1",
@@ -25,7 +27,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test"
   },

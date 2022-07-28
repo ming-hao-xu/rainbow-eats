@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -43,7 +42,7 @@ const BootstrapDialogTitle = (props) => {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -70,7 +69,7 @@ const Item = ({ name, description, image }) => {
     setOpen(true);
   };
 
-  const handleClose = (event, reason) => {
+  const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -91,7 +90,7 @@ const Item = ({ name, description, image }) => {
       </Box>
       <Snackbar
         open={open}
-        autoHideDuration={5000}
+        autoHideDuration={3000}
         TransitionComponent={Slide}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -118,13 +117,19 @@ export default function MenuDialog() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>
-        <RestaurantMenuIcon style={{ marginRight: "5px" }} />
+      <Button
+        variant="contained"
+        disableElevation
+        disableRipple
+        sx={{ mr: 2, ml: 1, mb: 0.5 }}
+        endIcon={<RestaurantMenuIcon />}
+        onClick={handleClickOpen}
+      >
         {t("app.info-card.menu")}
       </Button>
       <BootstrapDialog
-        onClose={handleClose}
         aria-labelledby="menu-dialog-title"
+        onClose={handleClose}
         open={open}
       >
         <BootstrapDialogTitle id="menu-dialog-title" onClose={handleClose}>
@@ -132,7 +137,7 @@ export default function MenuDialog() {
         </BootstrapDialogTitle>
 
         <DialogContent dividers>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             <Item
               name={t("app.menu-dialog.dummy-name1")}
               description={t("app.menu-dialog.dummy-description1")}
@@ -152,7 +157,13 @@ export default function MenuDialog() {
         </DialogContent>
 
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button
+            variant="contained"
+            color="secondary"
+            disableElevation
+            disableRipple
+            onClick={handleClose}
+          >
             Check out
           </Button>
         </DialogActions>
@@ -164,4 +175,10 @@ export default function MenuDialog() {
 BootstrapDialogTitle.propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func.isRequired,
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
