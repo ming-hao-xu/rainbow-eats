@@ -10,7 +10,6 @@ import Fab from "@mui/material/Fab";
 // i18n
 import { useTranslation } from "react-i18next";
 
-
 export default function LangSwitch() {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,6 +35,7 @@ export default function LangSwitch() {
     { code: "id", flag: "id", name: "Indonesia" },
   ];
 
+  // click on MenuItem but not the link will not open
   const renderMenu = (
     <Menu
       id="menu-lang"
@@ -45,7 +45,8 @@ export default function LangSwitch() {
       transformOrigin={{ vertical: "top", horizontal: "center" }}
       open={Boolean(anchorEl)}
       onClose={handleClose}
-      MenuListProps={{ onMouseLeave: handleClose }}
+      // on hover
+      // MenuListProps={{ onMouseLeave: handleClose }}
       autoFocus={false}
     >
       {languages.map((lang) => (
@@ -62,7 +63,7 @@ export default function LangSwitch() {
           {lang.name}
         </MenuItem>
       ))}
-      <MenuItem onClick={() => handleClose()}>
+      <MenuItem onClick={() => handleClose()} disableRipple>
         <a
           href="https://github.com/xu-minghao317/rainbow-eats/tree/main/public/locales"
           target="_blank"
@@ -82,7 +83,7 @@ export default function LangSwitch() {
         aria-haspopup="true"
         variant="extended"
         color="secondary"
-        onMouseOver={handleClick}
+        onClick={handleClick}
         disableRipple
       >
         <LanguageIcon sx={{ mr: "0.5rem" }} />

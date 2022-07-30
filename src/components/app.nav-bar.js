@@ -18,8 +18,8 @@ import Fab from "@mui/material/Fab";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "boring-avatars";
 import LogoutIcon from "@mui/icons-material/Logout";
-import FaceIcon from "@mui/icons-material/Face";
 import SettingsIcon from "@mui/icons-material/Settings";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 // components
 import SideDrawer from "./app.side-drawer";
@@ -29,14 +29,23 @@ import LangSwitch from "./app.lang-switch";
 import { useTranslation } from "react-i18next";
 
 function timeToGreetings() {
+  const { t } = useTranslation();
   const now = new Date();
   const hour = now.getHours();
-  if (hour < 12) {
-    return "Good Morning 🌅";
+
+  // we will not handle opening time and user authentication at this moment
+  if (hour < 8) {
+    // "Have a good dream 🌙";
+    return t("app.nav-bar.midnight");
+  } else if (hour < 12) {
+    // "Good Morning 🌅";
+    return t("app.nav-bar.morning");
   } else if (hour < 18) {
-    return "Good Afternoon ☀️";
+    // "Good Afternoon ☀️";
+    return t("app.nav-bar.afternoon");
   } else {
-    return "Good Evening ✨";
+    // "Good Evening ✨";
+    return t("app.nav-bar.evening");
   }
 }
 
@@ -109,7 +118,6 @@ export default function NavBar() {
       width="50"
     >
       <MenuItem key="greetings" disableRipple>
-        {/* show greetings based on time */}
         {timeToGreetings()}
       </MenuItem>
       <MenuItem key="logout" disableRipple onClick={handleMenuClose}>
@@ -117,7 +125,7 @@ export default function NavBar() {
         {t("app.nav-bar.logout")}
       </MenuItem>
       <MenuItem key="profile" disableRipple onClick={handleMenuClose}>
-        <FaceIcon sx={{ mr: "1rem" }} />
+        <AccountBoxIcon sx={{ mr: "1rem" }} />
         {t("app.nav-bar.profile")}
       </MenuItem>
       <MenuItem key="settings" disableRipple onClick={handleMenuClose}>

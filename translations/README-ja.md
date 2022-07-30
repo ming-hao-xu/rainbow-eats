@@ -14,7 +14,7 @@
 </p>
 
 ## Rainbow Eats について
-立命館大学のフードトラックでテイクアウトを注文するためのサーバーレスなデスクトップWebアプリケーション (デモ)。
+立命館大学のフードトラックでテイクアウトを注文するためのサーバーレスなWebアプリケーション (デモ)。
 
 ## **https://rainboweats-frtny.mongodbstitch.com/ でホスティング**
 ---
@@ -30,7 +30,6 @@
 - 🇨🇳 中国語簡体字
 - 🇮🇳 ヒンディー語
 - 🇮🇩 インドネシア語
-- 翻訳に協力してください 👋
 
 ## インストール
 ```sh
@@ -51,7 +50,7 @@ pnpm start
 ---
 
 ## 📝 ライセンス
-このプロジェクトは [MIT license](https://github.com/xu-minghao317/rainbow-eats/blob/main/license) licensed.
+このプロジェクトのライセンスは [MIT license](https://github.com/xu-minghao317/rainbow-eats/blob/main/license)。
 
 著作権 © 2022 Rainbow Eats 貢献者。
 Rainbow Eatsのlogoは、OpenAI Inc.が所有しています。

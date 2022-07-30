@@ -24,7 +24,7 @@
 ---
 
 ## About Rainbow Eats
-A serverless, desktop web application for ordering food takeout from food trucks at Ritsumeikan University (Demo).
+A serverless, web application for ordering food takeout from food trucks at Ritsumeikan University (Demo).
 
 ## **Hosting at: https://rainboweats-frtny.mongodbstitch.com/**
 ---
@@ -40,7 +40,6 @@ A serverless, desktop web application for ordering food takeout from food trucks
 - 🇨🇳 Chinese Simplified
 - 🇮🇳 Hindi
 - 🇮🇩 Indonesian
-- Help us to translate 👋
 
 ## Install
 ```sh

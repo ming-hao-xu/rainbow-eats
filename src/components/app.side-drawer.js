@@ -17,6 +17,7 @@ import SupportIcon from "@mui/icons-material/Support";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import IconButton from "@mui/material/IconButton";
 import { alpha } from "@mui/material/styles";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 // i18n
 import { useTranslation } from "react-i18next";
@@ -60,12 +61,12 @@ export default function SideDrawer() {
       key: "Help",
       icon: <SupportIcon />,
       text: t("app.side-drawer.help"),
-    }
+    },
   ];
 
   const list = () => (
     <Box
-      sx={{ width: "19rem" }}
+      sx={{ width: "20rem" }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -75,7 +76,7 @@ export default function SideDrawer() {
           <ListItem key={item.key} disablePadding>
             <ListItemButton disableRipple>
               {item.icon}
-              <ListItemText primary={item.text} sx={{ ml: "1rem" }} />
+              <ListItemText primary={item.text} sx={{ ml: 2 }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -91,6 +92,7 @@ export default function SideDrawer() {
           <ListItem key={text} disablePadding>
             <ListItemButton disableRipple>
               <ListItemText primary={text} />
+              <LaunchIcon sx={{ ml: 0.5 }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -102,7 +104,7 @@ export default function SideDrawer() {
         justifyContent="center"
         alignItems="center"
         position="absolute"
-        bottom="40px"
+        bottom="2rem"
         left="0"
         right="0"
       >
@@ -121,7 +123,7 @@ export default function SideDrawer() {
           width="240"
           style={{
             marginBottom: "20px",
-            backgroundColor: "white",
+            backgroundColor: "WhiteSmoke",
             borderRadius: "5px",
           }}
         />
@@ -135,8 +137,8 @@ export default function SideDrawer() {
       <IconButton
         onClick={toggleDrawer(true)}
         disableRipple
-        edge="start"
         aria-label="side drawer"
+        edge="start"
         sx={{
           "&:hover": {
             backgroundColor: alpha("#fff", 0.25),

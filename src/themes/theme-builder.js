@@ -6,6 +6,8 @@ import { createTheme } from "@mui/material/styles";
 import { red, orange } from "@mui/material/colors";
 
 export default function ThemeBuilder() {
+  // adptive theme is temporary suspend until light theme is ready
+  // we will submit the dark theme only at this moment
   // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = React.useMemo(

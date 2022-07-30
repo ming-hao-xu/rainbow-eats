@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: "jp",
     detections: {
-      order: ["cookie", "localStorage", "path", "htmlTag"],
+      order: ["localStorage", "cookie", "path", "htmlTag"],
       caches: ["cookie"],
     },
   });

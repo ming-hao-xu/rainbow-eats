@@ -15,15 +15,18 @@
   },
   "app.info-card": {
     "menu": "メニュー",
-    "map": "マップ",
-    "share": "シェア"
+    "map": "マップ"
   },
   "app.nav-bar": {
     "profile": "プロファイル",
     "settings": "設定",
     "search": "探す...",
     "cart": "カート",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "midnight": "Have a good dream 🌙",
+    "morning": "Good Morning 🌅",
+    "afternoon": "Good Afternoon ☀️",
+    "evening": "Good Evening ✨"
   },
   "app.menu-dialog": {
     "menu": "メニュー",
@@ -33,6 +36,20 @@
     "dummy-description2": "とろ〜り３種のチーズ",
     "dummy-name3": "牛丼 (¥550)",
     "dummy-description3": "キムチ",
-    "addcart": "カートに追加しました!"
+    "addcart": "カートに追加しました!",
+    "checkout": "チェックアウト",
+    "undo": "取り消し"
+  },
+  "page.not-found": {
+    "description": "未知の世界に飛び込んだ",
+    "button": "Rainbow Eats に戻る"
+  },
+  "app.share-dialog": {
+    "feedback": "シェアしてくれてありがとうございます!",
+    "share": "シェア"
+  },
+  "app.map-dialog": {
+    "location": "📍 Location",
+    "close": "Close"
   }
 }

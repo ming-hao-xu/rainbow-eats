@@ -5,19 +5,17 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActions } from "@mui/material";
-import MapIcon from "@mui/icons-material/Map";
+import CardActions from "@mui/material/CardActions";
 import Masonry from "@mui/lab/Masonry";
-import ShareIcon from "@mui/icons-material/Share";
+import Box from "@mui/material/Box";
+import BedtimeIcon from "@mui/icons-material/Bedtime";
 
 // components
 import MenuDialog from "./app.menu-dialog";
-
-// i18n
-import { useTranslation } from "react-i18next";
+import MapDialog from "./app.map-dialog";
+import ShareDialog from "./app.share-dialog";
 
 export default function InfoCard() {
-  const { t } = useTranslation();
   const [truckInfo, setTruckInfo] = useState([]);
 
   // fetch from MongoDB
@@ -30,48 +28,111 @@ export default function InfoCard() {
   }, []);
 
   return (
-    // this div fix mui masonry spacing issue
-    <div style={{marginLeft : "16px"}}>
-    <Masonry columns={4} sx={{ mt: 9 }} spacing={2}>
-      {truckInfo.map((truck) => (
-        <Card elevation={6} key={truck._id} sx={{ borderRadius: "20px" }}>
-          <CardMedia
-            component="img"
-            alt={truck.truck_name}
-            image={"./images/truck/" + truck._id + ".png"}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" noWrap={true}>
-              {truck.truck_name}
-            </Typography>
-            <Typography variant="subtitle2" color="textSecondary">
-              {truck.truck_description}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <MenuDialog truckName={truck.truck_name} />
-            <Button
-              variant="contained"
-              disableElevation
-              disableRipple
-              sx={{ mr: 1, mb: 0.5 }}
-              endIcon={<MapIcon />}
-            >
-              {t("app.info-card.map")}
-            </Button>
-            <Button
-              variant="contained"
-              disableElevation
-              disableRipple
-              sx={{ mr: 1, mb: 0.5 }}
-              endIcon={<ShareIcon />}
-            >
-              {t("app.info-card.share")}
-            </Button>
-          </CardActions>
-        </Card>
-      ))}
-    </Masonry>
-    </div>
+    <Box
+      sx={{
+        ml: { sm: 0, md: 2, lg: 2 },
+      }}
+    >
+      <Masonry sx={{ mt: 9 }} spacing={2} columns={{ sm: 1, md: 4, lg: 4 }}>
+        {/* map truckInfo first where truck.truck_avilable is true */}
+        {truckInfo.map((truck) =>
+          truck.available ? (
+            <Card elevation={6} key={truck._id} sx={{ borderRadius: "20px" }}>
+              <CardMedia
+                component="img"
+                alt={truck.name}
+                image={"./images/truck/" + truck._id + ".png"}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" noWrap={true}>
+                  {truck.name}
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  {truck.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <MenuDialog available={true} name={truck.name} />
+
+                <MapDialog
+                  available={true}
+                  name={truck.name}
+                  lat={truck.lat}
+                  lng={truck.lng}
+                />
+
+                <ShareDialog
+                  name={truck.name}
+                  description={truck.description}
+                />
+              </CardActions>
+            </Card>
+          ) : null
+        )}
+
+        {/* map truckInfo second where truck.truck_avilable is false */}
+        {truckInfo.map((truck) =>
+          truck.available ? null : (
+            <Card elevation={6} key={truck._id} sx={{ borderRadius: "20px" }}>
+              <div style={{ position: "relative" }}>
+                <CardMedia
+                  component="img"
+                  alt={truck.name}
+                  image={"./images/truck/" + truck._id + ".png"}
+                  // dim image when truck is not available
+                  sx={{
+                    opacity: 0.5,
+                    filter: "grayscale(100%)",
+                  }}
+                />
+
+                <BedtimeIcon
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                />
+                <Typography
+                  variant="h6"
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    mt: 4,
+                  }}
+                >
+                  Currently unavailable
+                </Typography>
+              </div>
+
+              <CardContent>
+                <Typography gutterBottom variant="h5" noWrap={true}>
+                  {truck.name}
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  {truck.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <MenuDialog available={false}/>
+
+                <MapDialog
+                  available={false}
+                  name={truck.name}
+                />
+
+                <ShareDialog
+                  name={truck.name}
+                  description={truck.description}
+                />
+              </CardActions>
+            </Card>
+          )
+        )}
+      </Masonry>
+    </Box>
   );
 }

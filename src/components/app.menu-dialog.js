@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // mui
 import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -15,19 +15,14 @@ import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import Box from "@mui/material/Box";
-
 import Snackbar from "@mui/material/Snackbar";
 import Slide from "@mui/material/Slide";
-import MuiAlert from "@mui/material/Alert";
+import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 // i18n
 import { useTranslation } from "react-i18next";
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -48,11 +43,15 @@ const BootstrapDialogTitle = (props) => {
         <IconButton
           aria-label="close"
           onClick={onClose}
+          disableRipple
           sx={{
             position: "absolute",
             right: 8,
             top: 8,
             color: (theme) => theme.palette.grey[500],
+            "&:hover": {
+              backgroundColor: alpha("#fff", 0.25),
+            },
           }}
         >
           <CloseIcon />
@@ -62,9 +61,10 @@ const BootstrapDialogTitle = (props) => {
   );
 };
 
-const Item = ({ name, description, image }) => {
+const MenuItem = ({ name, description, image }) => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -78,24 +78,43 @@ const Item = ({ name, description, image }) => {
 
   return (
     <Grid item xs>
-      <Typography gutterBottom variant="body1">
-        {name} <br />
+      <Typography variant="body1">{name}</Typography>
+      <Typography gutterBottom variant="subtitle2">
         {description}
       </Typography>
+
       <img alt={name} src={image} width="100%" />
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <Fab aria-label="add" onClick={handleClick} size="small">
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Fab onClick={handleClick} aria-label="add" size="small" disableRipple>
           <AddIcon />
         </Fab>
-      </Box>
+      </div>
+
       <Snackbar
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={4000}
         TransitionComponent={Slide}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+        <Alert
+          onClose={handleClose}
+          elevation={6}
+          severity="success"
+          action={
+            <Button color="inherit" size="small" onClick={handleClose}>
+              {t("app.menu-dialog.undo")}
+            </Button>
+          }
+          sx={{ width: "100%" }}
+        >
           <AlertTitle>{t("app.menu-dialog.addcart")}</AlertTitle>
           {name} {description}
         </Alert>
@@ -104,11 +123,11 @@ const Item = ({ name, description, image }) => {
   );
 };
 
-export default function MenuDialog() {
+export default function MenuDialog({available, name}) {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClick = () => {
     setOpen(true);
   };
   const handleClose = () => {
@@ -116,14 +135,15 @@ export default function MenuDialog() {
   };
 
   return (
-    <div>
+    <>
       <Button
         variant="contained"
         disableElevation
         disableRipple
-        sx={{ mr: 2, ml: 1, mb: 0.5 }}
+        sx={{ mr: 1, ml: 1, mb: 0.5 }}
         endIcon={<RestaurantMenuIcon />}
-        onClick={handleClickOpen}
+        onClick={handleClick}
+        disabled={!available}
       >
         {t("app.info-card.menu")}
       </Button>
@@ -133,22 +153,22 @@ export default function MenuDialog() {
         open={open}
       >
         <BootstrapDialogTitle id="menu-dialog-title" onClose={handleClose}>
-          {t("app.menu-dialog.menu")}
+          {t("app.menu-dialog.menu")} of {name} 🚚
         </BootstrapDialogTitle>
 
         <DialogContent dividers>
-          <Grid container spacing={3}>
-            <Item
+          <Grid container spacing={2}>
+            <MenuItem
               name={t("app.menu-dialog.dummy-name1")}
               description={t("app.menu-dialog.dummy-description1")}
               image="./images/menu/gyudon-original.png"
             />
-            <Item
+            <MenuItem
               name={t("app.menu-dialog.dummy-name2")}
               description={t("app.menu-dialog.dummy-description2")}
               image="./images/menu/gyudon-chesse.png"
             />
-            <Item
+            <MenuItem
               name={t("app.menu-dialog.dummy-name3")}
               description={t("app.menu-dialog.dummy-description3")}
               image="./images/menu/gyudon-kimchi.png"
@@ -163,12 +183,13 @@ export default function MenuDialog() {
             disableElevation
             disableRipple
             onClick={handleClose}
+            endIcon={<ShoppingCartCheckoutIcon />}
           >
-            Check out
+            {t("app.menu-dialog.checkout")}
           </Button>
         </DialogActions>
       </BootstrapDialog>
-    </div>
+    </>
   );
 }
 
@@ -177,8 +198,13 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-Item.propTypes = {
+MenuItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+};
+
+MenuDialog.propTypes = {
+  available: PropTypes.bool.isRequired,
+  name: PropTypes.string,
 };

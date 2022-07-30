@@ -9,6 +9,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "5.0.0-alpha.88",
     "@mui/material": "^5.8.5",
+    "@react-google-maps/api": "^2.12.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,6 +24,7 @@
     "react-i18next": "^11.17.4",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "react-web-share": "^1.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

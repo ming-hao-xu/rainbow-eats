@@ -14,7 +14,7 @@
 </p>
 
 ## 关于 Rainbow Eats
-一个无服务器的桌面网页应用，用于从立命馆大学的餐车订购食物外卖 (演示)。
+一个无服务器的网页应用，用于从立命馆大学的餐车订购食物外卖 (演示)。
 
 ## **托管在: https://rainboweats-frtny.mongodbstitch.com/**
 ---
@@ -30,7 +30,6 @@
 - 🇨🇳 简体中文
 - 🇮🇳 印地语
 - 🇮🇩 印度尼西亚语
-- 帮助我们翻译吧 👋
 
 ## 安装
 ```sh
@@ -51,7 +50,7 @@ pnpm start
 ---
 
 ## 📝 License
-该项目持有 [MIT license](https://github.com/xu-minghao317/rainbow-eats/blob/main/license) 许可。
+该项目的许可证是 [MIT license](https://github.com/xu-minghao317/rainbow-eats/blob/main/license)。
 
 著作权 © 2022 Rainbow Eats 贡献者。
 Rainbow Eats logo 由 OpenAI Inc 所有。

@@ -15,15 +15,18 @@
   },
   "app.info-card": {
     "menu": "菜单",
-    "map": "地图",
-    "share": "分享"
+    "map": "地图"
   },
   "app.nav-bar": {
     "profile": "账户",
     "settings": "设置",
     "search": "搜索...",
     "cart": "购物车",
-    "logout": "注销"
+    "logout": "注销",
+    "midnight": "夜深人静了 🌙",
+    "morning": "早安 🌅",
+    "afternoon": "下午好 ☀️",
+    "evening": "晚安 ✨"
   },
   "app.menu-dialog": {
     "menu": "菜单",
@@ -33,6 +36,20 @@
     "dummy-description2": "三种入口即化的芝士",
     "dummy-name3": "牛丼 (¥550)",
     "dummy-description3": "韩国泡菜",
-    "addcart": "已添加至购物车!"
+    "addcart": "已添加至购物车!",
+    "checkout": "去结账",
+    "undo": "撤销"
+  },
+  "page.not-found": {
+    "description": "你踏入了未知领域",
+    "button": "回到 Rainbow Eats"
+  },
+  "app.share-dialog": {
+    "feedback": "谢谢分享!",
+    "share": "分享"
+  },
+  "app.map-dialog": {
+    "location": "📍 Location",
+    "close": "Close"
   }
 }
