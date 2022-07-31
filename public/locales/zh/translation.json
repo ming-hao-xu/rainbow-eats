@@ -49,7 +49,10 @@
     "share": "分享"
   },
   "app.map-dialog": {
-    "location": "📍 Location",
-    "close": "Close"
+    "location": "📍 位置",
+    "close": "关闭"
+  },
+  "app.cart": {
+    "empty": "购物车空空如也 🛒"
   }
 }

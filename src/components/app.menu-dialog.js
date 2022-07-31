@@ -123,7 +123,7 @@ const MenuItem = ({ name, description, image }) => {
   );
 };
 
-export default function MenuDialog({available, name}) {
+export default function MenuDialog({ available, name }) {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 

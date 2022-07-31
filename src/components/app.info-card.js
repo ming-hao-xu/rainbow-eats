@@ -117,12 +117,9 @@ export default function InfoCard() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <MenuDialog available={false}/>
+                <MenuDialog available={false} />
 
-                <MapDialog
-                  available={false}
-                  name={truck.name}
-                />
+                <MapDialog available={false} name={truck.name} />
 
                 <ShareDialog
                   name={truck.name}

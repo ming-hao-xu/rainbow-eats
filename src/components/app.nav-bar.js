@@ -7,14 +7,10 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import CssBaseline from "@mui/material/CssBaseline";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Fab from "@mui/material/Fab";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "boring-avatars";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -24,6 +20,8 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 // components
 import SideDrawer from "./app.side-drawer";
 import LangSwitch from "./app.lang-switch";
+import Notifications from "./app.notifications";
+import Cart from "./app.cart";
 
 // i18n
 import { useTranslation } from "react-i18next";
@@ -170,33 +168,12 @@ export default function NavBar() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <LangSwitch />
-            <Fab
-              aria-label="shooping cart"
-              variant="extended"
-              color="secondary"
-              disableRipple
-              sx={{ mx: "1rem" }}
-            >
-              <ShoppingCartIcon sx={{ mr: "0.5rem" }} />
-              {t("app.nav-bar.cart")}
-            </Fab>
 
-            <IconButton
-              disableRipple
-              size="large"
-              aria-label="notifications"
-              sx={{
-                mr: "1rem",
-                "&:hover": {
-                  backgroundColor: alpha("#fff", 0.25),
-                },
-              }}
-            >
-              <Badge badgeContent={1} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <LangSwitch />
+
+            <Cart />
+
+            <Notifications />
 
             <IconButton
               disableRipple
@@ -218,6 +195,7 @@ export default function NavBar() {
                 colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
               />
             </IconButton>
+
           </Box>
         </Toolbar>
       </AppBar>

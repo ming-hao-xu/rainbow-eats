@@ -49,7 +49,10 @@
     "share": "シェア"
   },
   "app.map-dialog": {
-    "location": "📍 Location",
-    "close": "Close"
+    "location": "📍 位置情報",
+    "close": "閉じる"
+  },
+  "app.cart": {
+    "empty": "カートに何も入っていません 🛒"
   }
 }

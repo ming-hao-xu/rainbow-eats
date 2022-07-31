@@ -17,16 +17,13 @@ import Loading from "../pages/page.loading";
 // i18n
 import { useTranslation } from "react-i18next";
 
-function Map({name, lat, lng}) {
+function Map({ name, lat, lng }) {
   const center = useMemo(
     () => ({ lat: 34.98127841435381, lng: 135.96372688660392 }),
     []
   );
 
-  const marker = useMemo(
-    () => ({ lat: lat, lng: lng }),
-    []
-  );
+  const marker = useMemo(() => ({ lat: lat, lng: lng }), []);
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -36,7 +33,6 @@ function Map({name, lat, lng}) {
     return <Loading />;
   }
   return (
-    // use dark map
     <GoogleMap
       zoom={18}
       center={center}
@@ -52,7 +48,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function MapDialog({ available, name, lat, lng }) {  
+export default function MapDialog({ available, name, lat, lng }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -95,7 +91,7 @@ export default function MapDialog({ available, name, lat, lng }) {
           </Toolbar>
         </AppBar>
 
-        <Map {...{name, lat, lng }} />
+        <Map {...{ name, lat, lng }} />
       </Dialog>
     </>
   );
@@ -112,4 +108,4 @@ Map.propTypes = {
   name: PropTypes.string,
   lat: PropTypes.number,
   lng: PropTypes.number,
-}
+};

@@ -51,5 +51,8 @@
   "app.map-dialog": {
     "location": "📍 Location",
     "close": "Close"
+  },
+  "app.cart": {
+    "empty": "You have nothing in your cart 🛒"
   }
 }

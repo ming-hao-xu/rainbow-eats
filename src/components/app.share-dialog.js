@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { RWebShare } from "react-web-share";
 
@@ -20,14 +20,14 @@ export default function ShareDialog({ name, description }) {
 
   const handleClick = () => {
     setOpen(true);
-  }
+  };
 
-  const handleClose = (reason) => { 
+  const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
     }
     setOpen(false);
-  }
+  };
 
   return (
     <>

@@ -2,7 +2,6 @@ import React from "react";
 
 // mui
 import Divider from "@mui/material/Divider";
-
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
