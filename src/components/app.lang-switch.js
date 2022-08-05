@@ -29,8 +29,8 @@ export default function LangSwitch() {
 
   const languages = [
     { code: "ja", flag: "jp", name: "日本語" },
-    { code: "en", flag: "gb", name: "English" },
-    { code: "zh", flag: "cn", name: "简体中文" },
+    { code: "en-US", flag: "gb", name: "English" },
+    { code: "zh-CN", flag: "cn", name: "简体中文" },
     { code: "hi", flag: "in", name: "हिन्दी" },
     { code: "id", flag: "id", name: "Indonesia" },
   ];
