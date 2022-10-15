@@ -10,7 +10,7 @@ specifiers:
   '@react-google-maps/api': 2.13.1
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0
-  '@testing-library/user-event': 13.5.0
+  '@testing-library/user-event': 14.4.3
   autoprefixer: 10.4.12
   boring-avatars: 1.7.0
   eslint: 8.25.0
@@ -38,7 +38,7 @@ dependencies:
   '@react-google-maps/api': 2.13.1_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
-  '@testing-library/user-event': 13.5.0_ihvo3xlg2d6kwqju3os3zitn3y
+  '@testing-library/user-event': 14.4.3_ihvo3xlg2d6kwqju3os3zitn3y
   boring-avatars: 1.7.0
   flag-icons: 6.6.6
   i18next: 21.10.0
@@ -2752,13 +2752,12 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@testing-library/user-event/13.5.0_ihvo3xlg2d6kwqju3os3zitn3y:
-    resolution: {integrity: sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==}
-    engines: {node: '>=10', npm: '>=6'}
+  /@testing-library/user-event/14.4.3_ihvo3xlg2d6kwqju3os3zitn3y:
+    resolution: {integrity: sha512-kCUc5MEwaEMakkO5x7aoD+DLi02ehmEM2QCGWvNqAS1dV/fAvORWEjnjsEIvml59M7Y5kCkWN6fCCyPOe8OL6Q==}
+    engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
     dependencies:
-      '@babel/runtime': 7.19.4
       '@testing-library/dom': 8.14.0
     dev: false
 
