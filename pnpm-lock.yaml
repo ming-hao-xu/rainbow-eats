@@ -25,7 +25,7 @@ specifiers:
   react-i18next: 11.18.6
   react-router-dom: 6.4.2
   react-scripts: 5.0.1
-  react-web-share: 1.1.6
+  react-web-share: 2.0.1
   web-vitals: 2.1.4
 
 dependencies:
@@ -50,7 +50,7 @@ dependencies:
   react-i18next: 11.18.6_vfm63zmruocgezzfl2v26zlzpy
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_4m6gayn25qxqde2vssblxtmirm
-  react-web-share: 1.1.6_react@18.2.0
+  react-web-share: 2.0.1_f5rfwfyfuwqpx22elzbmnq6exi
   web-vitals: 2.1.4
 
 devDependencies:
@@ -4938,6 +4938,14 @@ packages:
       semver: 6.3.0
       string.prototype.matchall: 4.0.7
 
+  /eslint-plugin-simple-import-sort/8.0.0_eslint@8.25.0:
+    resolution: {integrity: sha512-bXgJQ+lqhtQBCuWY/FUWdB27j4+lqcvXv5rUARkzbeWLwea+S5eBZEQrhnO+WgX3ZoJHVj0cn943iyXwByHHQw==}
+    peerDependencies:
+      eslint: '>=5.0.0'
+    dependencies:
+      eslint: 8.25.0
+    dev: false
+
   /eslint-plugin-testing-library/5.5.1_l76llshcx5hpzqzl7lfng4kpb4:
     resolution: {integrity: sha512-plLEkkbAKBjPxsLj7x4jNapcHAg2ernkQlKKrN2I8NrQwPISZHyCUNvg5Hv3EDqOQReToQb5bnqXYbkijJPE/g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
@@ -8605,12 +8613,17 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-web-share/1.1.6_react@18.2.0:
-    resolution: {integrity: sha512-IttmjG4DlIPEWNnS3RBccaPo6zFs2DNYk+92YjW1iPp0L9h0hXCaellxIQx8xhLepLFoiVjOMM/MNbLSZUzzsw==}
+  /react-web-share/2.0.1_f5rfwfyfuwqpx22elzbmnq6exi:
+    resolution: {integrity: sha512-jbtpCJlEfcnIquwJmNC0hbLsrHD77IYPsArMpEDmJD9/T4vVLBAMpld66xuLYrICCVmBg+y13kQnRPdSKTtEgg==}
     peerDependencies:
-      react: '>=17'
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
     dependencies:
+      eslint-plugin-simple-import-sort: 8.0.0_eslint@8.25.0
       react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - eslint
     dev: false
 
   /react/18.2.0:
