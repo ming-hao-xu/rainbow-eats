@@ -26,7 +26,7 @@ specifiers:
   react-router-dom: 6.4.2
   react-scripts: 5.0.1
   react-web-share: 2.0.1
-  web-vitals: 3.0.3
+  web-vitals: 3.0.4
 
 dependencies:
   '@emotion/react': 11.10.4_5wvcx74lvxq2lfpc5x4ihgp2jm
@@ -51,7 +51,7 @@ dependencies:
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_4m6gayn25qxqde2vssblxtmirm
   react-web-share: 2.0.1_f5rfwfyfuwqpx22elzbmnq6exi
-  web-vitals: 3.0.3
+  web-vitals: 3.0.4
 
 devDependencies:
   autoprefixer: 10.4.12_postcss@8.4.14
@@ -9855,8 +9855,8 @@ packages:
       minimalistic-assert: 1.0.1
     dev: false
 
-  /web-vitals/3.0.3:
-    resolution: {integrity: sha512-8K6cl3alkVhwv7RQm3WAWFzvP9dBTH4CwOE7G3DfQDEnBJTdtNgX5XMqgE7aE79wac/kJ8fHWftUfH3AVxxbBw==}
+  /web-vitals/3.0.4:
+    resolution: {integrity: sha512-Yau8qf1AJ/dm6MY180Bi0qpCIuWmAfKAnOqmxLecGfIHn0+ND3H4JOhXeY73Pyi9zjSF5J4SNUewHLNUzU7mmA==}
     dev: false
 
   /webidl-conversions/3.0.1:
